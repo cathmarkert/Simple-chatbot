@@ -23,6 +23,7 @@ except socket.error:
     sys.exit(1)
 
 except socket.gaierror:
+    #hostname inválido 
     print("Erro ao buscar conectar-se a esse endereço. Tente novamente!")
     sys.exit(1)
 
@@ -34,6 +35,7 @@ print("Chat iniciado: ")
 def enviar_mensagem(conexao):
     while True:
         mnsg = input()
+
         try:
             conexao.send((f'{username} enviou: {mnsg}').encode('utf-8'))
 
